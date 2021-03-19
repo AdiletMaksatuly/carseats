@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=7">
+  <meta name="description" content="Сертифицированные бескаркасные кресла">
+  <meta name="keywords" content="Бескаркасные кресла, кресла для машин, кресла для детей">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="img/favicons/site.webmanifest">
+  <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#993131">
+
+  <title>Крылатко - сертифицированные бескаркасные кресла</title>
+
+  <!-- СТИЛИ ДЛЯ ОТОБРАЖЕНИЯ КРИТИЧЕСКОГО КОНТЕНТА -->
+  <style>
+    @font-face {
+      font-family: "Museo Sans";
+      src: url("./fonts/MuseoSansCyrl-500.woff") format("woff"), url("./fonts/MuseoSansCyrl-500.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      font-variant: normal;
+      font-display: swap;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Museo Sans", sans-serif;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .container {
+      max-width: 960px;
+      padding: 0 10px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 40px 10px;
+    }
+
+    .input,
+    .button {
+      font-family: "Museo Sans", sans-serif;
+      border-radius: 30px;
+      padding: 15px;
+      outline: none;
+    }
+
+    .input {
+      border: 0.5px solid #d5e4ef;
+      text-align: center;
+      position: relative;
+    }
+
+    .button {
+      border: none;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      background-color: #64a2b8;
+      color: #fff;
+      -webkit-box-shadow: 0px 5px 5px 0px rgba(1, 1, 1, 0.1);
+      box-shadow: 0px 5px 5px 0px rgba(1, 1, 1, 0.1);
+      cursor: pointer;
+      -webkit-transition: 0.2s;
+      transition: 0.2s;
+    }
+
+    .form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 20px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .form__titles {
+      max-width: 240px;
+    }
+
+    .form__title {
+      color: #64a2b8;
+      font-size: calc(18px + 2 * ((100vw - 280px) / 1160));
+      margin: 0.7rem 0 0.2rem;
+    }
+
+    .form__subtitle {
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .form__input,
+    .form__button {
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    .logo__link {
+      height: 90%;
+      text-align: center;
+    }
+
+    .logo__link img {
+      height: 100%;
+      margin: auto;
+    }
+
+    .logo__link span {
+      display: block;
+      margin-top: -20px;
+      font-size: calc(14px + 6 * ((100vw - 280px) / 1160));
+      text-shadow: -2px -2px 0 #fff, 0 -2px 0 #fff, 2px -2px 0 #fff, 2px 0 0 #fff, 2px 2px 0 #fff, 0 2px 0 #fff, -2px 2px 0 #fff, -2px 0 0 #fff;
+      color: #64a2b8;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #fff;
+      -webkit-box-shadow: 0px 0px 38px 0px rgba(104, 176, 201, 0.34);
+      box-shadow: 0px 0px 38px 0px rgba(104, 176, 201, 0.34);
+      -webkit-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out;
+    }
+
+    .header.hide {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+
+    .header__info {
+      text-align: right;
+      margin-left: 20px;
+    }
+
+    .header-info__phone,
+    .header-info__order {
+      display: block;
+    }
+
+    .header-info__phone {
+      color: #535353;
+      font-size: calc(16px + 8 * ((100vw - 280px) / 1160));
+      font-weight: 700;
+      line-height: 1.765;
+    }
+
+    .header__body,
+    .footer__body {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .header-info__order,
+    .footer__policies {
+      font-size: 14px;
+      color: #64a2b8;
+      text-decoration: underline;
+    }
+
+    .page {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .hero {
+      background-color: #eaf3f8;
+    }
+
+    @media (min-width: 621px) {
+      .no-webp .hero {
+        background: url("img/1/hero.png") no-repeat center/cover;
+      }
+
+      .webp .hero {
+        background: url("img/1/hero.webp") no-repeat center/cover;
+      }
+    }
+
+    .hero__body {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .hero__titles {
+      max-width: 80%;
+      text-align: right;
+    }
+
+    .hero__title {
+      margin: 0;
+      font-size: calc(24px + 17 * ((100vw - 280px) / 1160));
+      font-weight: 700;
+      color: #535353;
+    }
+
+    .hero__subtitle {
+      margin-top: 0.5rem;
+      color: #64a2b8;
+      font-size: calc(20px + 7 * ((100vw - 280px) / 1160));
+    }
+
+    .hero__form {
+      margin-top: 20px;
+      -webkit-box-shadow: 0px 0px 38px 0px rgba(104, 176, 201, 0.34);
+      box-shadow: 0px 0px 38px 0px rgba(104, 176, 201, 0.34);
+    }
+
+    @media (max-width: 620px) {
+      .hero__body {
+        align-items: center;
+      }
+
+      .hero__titles {
+        text-align: center;
+        min-width: 100%;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="./css/style.min.css">
+  <script src="./js/script.min.js" defer></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+  <div class="container">
+    <div class="header__body">
+      <div class="header__logo logo">
+        <a href="#" class="logo__link">
+          <picture><source srcset="./img/logo.webp" type="image/webp"><img src="./img/logo.png" width="74" height="74" alt="Логотип Крылатко"></picture>
+          <span>крылатко</span>
+        </a>
+      </div>
+      <div class="header__info header-info">
+        <a href="tel:+79507733170" class="header-info__phone">
+          +7 (950) 773-31-70
+        </a>
+        <a href="#" class="header-info__order">Заказать обратный звонок</a>
+      </div>
+    </div>
+  </div>
+</header>
+    <main class="page">
+      <section class="hero">
+        <div class="container">
+          <div class="hero__body section">
+            <div class="hero__titles">
+              <h1 class="hero__title">
+                Сертифицированные детские бескаркасные кресла
+              </h1>
+              <p class="hero__subtitle">
+                с беплатной доставкой по Челябинску
+              </p>
+            </div>
+            <form name="hero__form" class="hero__form hero-form form">
+              <div class="hero-form__titles form__titles">
+                <h4 class="hero-form__title form__title">
+                  Нет времени читать?
+                </h4>
+                <span class="hero-form__subtitle form__subtitle">
+                  Оставляйте номер, мы вам перезвоним!
+                </span>
+              </div>
+              <input class="hero-form__input input form__input" type="tel" placeholder="Ваш телефон" name="phone_number"
+                required pattern="^((8|\+7)[\- ]?)?(\(?\d{3,4}\)?[\- ]?)?[\d\- ]{5,10}$"
+                title="Введите настоящий номер телефона">
+              <button class="hero-form__button button form__button">Перезвоните мне</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="advantages">
+        <div class="container">
+          <div class="advantages__body">
+            <h2 class="advantages__title title">Почему именно бескаркасные кресла?</h2>
+            <article class="advantages__item advantages-item">
+              <div class="advantages-item__about">
+                <h3 class="advantages-item__title">Оставляет ваш салон свободным</h3>
+                <p class="advantages-item__paragraph">
+                  Бескаркасное автокресло «Смайл» можно не снимать во время перевозки взрослого или груза. Кресло весит
+                  всего 700 грамм и установить его можно в любой автомобиль.
+                </p>
+              </div>
+              <div class="advantages-item__image">
+                <picture><source srcset="img/2/1/ellips-1.webp" type="image/webp"><img src="img/2/1/ellips-1.png" width="255" height="255" alt="Оставляет ваш салон свободным" loading="lazy"></picture>
+              </div>
+            </article>
+            <article class="advantages__item advantages-item">
+              <div class="advantages-item__image">
+                <picture><source srcset="img/2/2/ellips-2.webp" type="image/webp"><img src="img/2/2/ellips-2.png" width="255" height="255" alt="Подходит большинству групп детей" loading="lazy"></picture>
+              </div>
+              <div class="advantages-item__about advantages-item__about_align_right">
+                <h3 class="advantages-item__title">Подходит большинству групп детей</h3>
+                <p class="advantages-item__paragraph">
+                  Автокресло рассчитано на возраст от 1 года до 12 лет (от 9 кг до 36 кг) Имеет пятиточную фиксацию
+                  ребенка, как в гоночном автомобиле.
+                </p>
+              </div>
+            </article>
+            <article class="advantages__item advantages-item">
+              <div class="advantages-item__about">
+                <h3 class="advantages-item__title">Отечественный производитель</h3>
+                <p class="advantages-item__paragraph">
+                  Автокресла производят в г. Георгиевске (Ставропольский край), соответсвуют нормам ГИБДД и разрешены к
+                  использованию по всей территории РФ, о чем говорит сертификат соответствия.
+                </p>
+              </div>
+              <div class="advantages-item__image">
+                <picture><source srcset="img/2/3/ellips-3.webp" type="image/webp"><img src="img/2/3/ellips-3.png" width="255" height="255" alt="Отечественный производитель" loading="lazy"></picture>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sale">
+        <div class=" container">
+          <div class="sale__body section">
+            <div class="sale__price sale-price price">
+              <div class="sale-price__circle price__circle">
+                <span>2 545 p.</span>
+                <span>1 850 p.</span>
+              </div>
+            </div>
+            <div class="sale__info">
+              <h2 class="sale__title">Скидка 28%</h2>
+              <h3 class="sale__subtitle">и бесплатная доставка</h3>
+              <span class="sale__bonus">в подарок!</span>
+              <div class="sale__form sale-form">
+                <div class="sale-form__info">
+                  <span>Акция только до:</span>
+                  <span class="sale-form__date">4</span>
+                  <span>декабря!</span>
+                </div>
+                <button class="sale-form__button button">
+                  заказать
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="digits">
+        <div class="container">
+          <div class="digits__body section">
+            <article class="digits__item">
+
+              <div class="digits__digit b-lazy" data-src="img/4/icon-1.webp">
+                <h5>8</h5>
+              </div>
+              <p class="digits__caption">
+                лет на рынке
+              </p>
+            </article>
+            <article class="digits__item">
+              <div class="digits__digit b-lazy" data-src="img/4/icon-1.webp">
+                <h5>21 645</h5>
+              </div>
+              <p class="digits__caption">
+                кресел продано
+              </p>
+            </article>
+            <article class="digits__item">
+              <div class="digits__digit b-lazy" data-src="img/4/icon-1.webp">
+                <h5>1 254</h5>
+              </div>
+              <p class="digits__caption">
+                что то сделано
+              </p>
+            </article>
+            <article class="digits__item">
+              <div class="digits__digit b-lazy" data-src="img/4/icon-1.webp">
+                <h5>45</h5>
+              </div>
+              <p class="digits__caption">
+                заказов в день
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="certification">
+        <div class="container">
+          <div class="certification__body section">
+            <h2 class="certification__title title">Сертификация товара</h2>
+            <div class="certification__image">
+              <picture><source srcset="img/5/certificat.webp" type="image/webp"><img src="img/5/certificat.jpg" width="230" height="304" alt="Сертификат" loading="lazy"></picture>
+            </div>
+            <article class="certification__info certification-info">
+              <h3 class="certification-info__title">Соответствуют всем нормам и требованиям ГИБДД</h3>
+              <p>
+                Наши кресла производятся в г. Георгиевске (Ставропольский край), сертифицированны и разрешены к
+                использованию по всей России.
+              </p>
+              <p>
+                Кресло весит всего 700 грамм, его можно носить с собой и установить в любое авто.
+              </p>
+              <p>
+                Стирать кресло можно при температуре 30 градусов.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container">
+          <div class="features__body section">
+            <article class="features__item">
+              <h3 class="features__title features__title_first">Крепкие ремни</h3>
+              <p class="features__info">
+                Тесьма ременная имеет плотную структуру и выдерживает большие нагрузки.
+              </p>
+            </article>
+            <article class="features__image">
+              <picture><source srcset="img/6/features-carseat.webp" type="image/webp"><img src="img/6/features-carseat.png" alt="Бескаркасное кресло" loading="lazy"></picture>
+            </article>
+            <article class="features__item">
+              <h3 class="features__title features__title_second">Безопасные материалы</h3>
+              <p class="features__info">
+                При пошиве используется ткань "Оксфорд", сетка Air-mesh 3-х слойная, поролон, спанбонд, халлофайбер. Все
+                материалы экологически чистые, сертифицированы.
+              </p>
+            </article>
+            <article class="features__item">
+              <h3 class="features__title features__title_third">Удобная установка</h3>
+              <p class="features__info">
+                Достаточно продеть штатный ремень безопасности автомобиля, через специальный карман устройства "ВИННИ" и
+                застегнуть в замок.
+              </p>
+            </article>
+            <article class="features__item">
+              <h3 class="features__title features__title_fourth">Прочные крепления</h3>
+              <p class="features__info">
+                Устройство ВИННИ" имеет пятиточечную систему крепления. Пряжки производят из высокопрочных пластиков,
+                имеющих хорошие показатели упругости.
+              </p>
+            </article>
+          </div>
+      </section>
+
+
+      <section class="request">
+        <div class="container">
+          <div class="request__body section">
+            <div class="request__price request-price price">
+              <div class="request-price__circle price__circle">
+                <h5 class="request-price__title">Скидка 28%</h5>
+                <span>2 545 p.</span>
+                <span>1 850 p.</span>
+              </div>
+            </div>
+            <form class="request__form request-form">
+              <h3 class="request-form__title">
+                Оставьте заявку сейчас и получите
+              </h3>
+              <h3 class="request-form__subtitle">бесплатную доставку!</h3>
+              <input class="request-form__input input form__input" type="tel" placeholder="Ваш телефон"
+                name="phone_number" required pattern="^((8|\+7)[\- ]?)?(\(?\d{3,4}\)?[\- ]?)?[\d\- ]{5,10}$"
+                title="Введите настоящий номер телефона">
+              <button class="request-form__button button">Перезвоните мне</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="comparison">
+        <div class="container">
+          <div class="comparison__body section">
+            <h2 class="comparison__title comparison__title_secondary">Обычное кресло</h2>
+            <h2 class="comparison__title comparison__title_primary">Бескаркасное кресло</h2>
+            <article class="comparison__left-side">
+              <p class="comparison__info comparison__info_secondary comparison__info_secondary_1">боковые стенки
+                преграда для движений ребенка,
+                особенно в зимний период, когда
+                много одежды
+              </p>
+              <p class="comparison__info comparison__info_secondary comparison__info_secondary_2">
+                необходимо менять автокресло по мере увеличения
+                веса ребенка
+              </p>
+              <p class="comparison__info comparison__info_secondary comparison__info_secondary_3">
+                имеет 5-ти точечную фиксацию ребенка
+              </p>
+              <p class="comparison__info comparison__info_secondary comparison__info_secondary_4">
+                нужно убирать в багажник при перевозки взрослых
+                или каких либо грузов
+              </p>
+            </article>
+            <div class="comparison__image">
+              <picture><source srcset="img/8/comparison-carseat.webp" type="image/webp"><img src="img/8/comparison-carseat.png" width="200" height="303" alt="Бескаркасное кресло" loading="lazy"></picture>
+            </div>
+            <article class="comparison__right-side">
+              <p class="comparison__info comparison__info_primary comparison__info_primary_1 ">дает полную безопасную
+                свободу ребёнка ОСТАВЛЯЕТ
+                СПИНКУ СИДЕНИЕ ЧИСТЫМ
+              </p>
+
+              <p class="comparison__info comparison__info_primary comparison__info_primary_2">подходит 1, 2, 3 группе
+                детей (от 9 кг до 36 кг) (от
+                1 года до 12 лет)
+              </p>
+              <p class="comparison__info comparison__info_primary comparison__info_primary_3">
+                имеет 5-ти точечную фиксацию ребенка</p>
+
+              <p class="comparison__info comparison__info_primary comparison__info_primary_4">не мешает при перевозке
+                пассажиров или грузов. Весит
+                700 грамм
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="address">
+        <div class="container">
+          <div class="address__body section">
+            <div class="address__map b-lazy" data-src="img/9/redmap.webp" id="map">
+            </div>
+            <div class="address__info">
+              <p class="address__caption">Забрать кресло можно по адресу:</p>
+              <h3 class="address__title">
+                <address>Челябинск, <br> ул. Академика королева, 38</address>
+              </h3>
+              <p class="address__caption">или используйте</p>
+              <button class="address__button button">Бесплатная доставка</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div></div>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer__body">
+      <div class="footer__logo footer-logo logo">
+        <a href="#" class="footer-logo__link logo__link">
+          <picture><source srcset="./img/logo.webp" type="image/webp"><img src="./img/logo.png" width="74" height="74" alt="логотип Крылатко"></picture>
+          <span>крылатко</span>
+        </a>
+      </div>
+      <div class="footer__info">
+        <a href="#" class="footer__policies">Политика конфиденциальности</a>
+        <div class="footer__docs">
+          <span>ИИН 999999999</span>
+          <span>ОГРН 453453453453</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <div class="modal" id="form-order">
+    <div class="modal__content">
+      <form name="modal__form" class="modal__form modal-form form">
+        <div class="modal-form__titles form__titles">
+          <h4 class="modal-form__title form__title">
+            Обратный звонок
+          </h4>
+          <span class="modal-form__subtitle form__subtitle">
+            Оставляйте номер, мы вам перезвоним!
+          </span>
+        </div>
+        <input class="modal-form__input input form__input" type="tel" placeholder="Ваш телефон" name="phone_number"
+          required pattern="^((8|\+7)[\- ]?)?(\(?\d{3,4}\)?[\- ]?)?[\d\- ]{5,10}$"
+          title="Это не настоящий номер телефона">
+        <button class="modal-form__button button form__button">Перезвоните мне</button>
+      </form>
+      <button type="button" class="modal__close" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="modal" id="thank-you">
+    <div class="modal__content">
+      <button type="button" class="modal__close" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <form name="modal__form" class="modal__form form thank-you">
+        <div class="modal__form-titles form__titles">
+          <h4 class="modal__form-title form__title">
+            Спасибо за вашу заявку!
+          </h4>
+          <p class="modal__form-subtitle form__subtitle thank-you__subtitle">
+            Наш менеджер немедленно свяжется с вами в ближайшее время!
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./js/blazy.min.js"></script>
+<script>
+  ; (function () {
+    // Initialize
+    var bLazy = new Blazy();
+  })();
+</script>
+</body>
+
+</html>
